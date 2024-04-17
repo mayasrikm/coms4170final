@@ -1,6 +1,41 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='cards/cards.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='rules/tens.css')}}">
+</head>
+<header>
+    <h1>Tens</h1>
+	<h2>A <span class="bold">tens</span> is when two consecutive cards (or with face card between) add to 10.<span class="bold"> For this rule, an ace counts as one. Ex: 3, 7 or 9, Q, A.</span></h2>
+</header>
+<div class="card-container">
+	<a href="/extra-royal"><button type="button" class="btn btn-outline-danger">&#8701; PREVIOUS</button></a>
+    <div class="nine of spades card" tabindex="0">
+        <div class="interior">
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+			<div class="symbol"></div>
+        </div>
+    </div>
+	<div class="queen of diamonds card" tabindex="0">
+        <div class="interior">
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+        </div>
+    </div>
+    <div class="ace of hearts card" tabindex="0">
+        <div class="interior">
+            <div class="symbol"></div>
+        </div>
+    </div>
+	<a href="/extra-four"><button type="button" class="btn btn-outline-danger">NEXT &#8702;</button></a>
+</div>
 
-<h1>PRACTICE</h1>
 {% endblock %}

@@ -1,0 +1,658 @@
+@font-face {
+	font-family: 'Card Suits';
+	src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/32996/CardsuitsRegular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+  }
+
+  * {
+	box-sizing: border-box;
+	position: relative;
+  }
+  
+  h3 {
+	font-family: Comfortaa, "Arial Narrow", Arial, 'Card Suits', sans-serif;
+	font-size: 2rem;
+	padding-bottom: 2rem;
+	margin-top: 0;
+	margin-bottom: 3rem;
+	border-bottom: 1px solid #ddd;
+  }
+  
+  .deck {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(2.5in, 1fr));
+	grid-gap: 0.125in;
+	align-items: center;
+	justify-items: center;
+  }
+  
+  .bridge.deck {
+	grid-template-columns: repeat(auto-fill, minmax(2.25in, 1fr));
+  }
+  
+  .card {
+	font-family: Comfortaa, "Arial Narrow", Arial, 'Card Suits', sans-serif;
+	height: 3.5in;
+	width: 2.5in;
+	border-radius: 0.0625in;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	background: #fff;
+	display: grid;
+	grid-template-columns: 0.375in 1fr 0.375in;
+	user-select: none;
+	transition: all 250ms ease-out;
+	will-change: scale3d;
+	transform: translateZ(0);
+	border: 1px solid #ddd;
+  }
+  
+  .poker .card {
+	height: 3.5in;
+	width: 2.5in;
+  }
+  
+  .bridge .card {
+	height: 3.5in;
+	width: 2.25in;
+  }
+  
+  .card:hover {
+	transform: scale3d(1.025, 1.025, 1);
+	z-index: 1000;
+	box-shadow: 0 1px 32px rgba(0, 0, 0, 0.1);
+	transition: all 125ms ease-in;
+  }
+
+  .card::before,
+  .card::after {
+	font-size: 1.5rem;
+	white-space: pre;
+	text-align: center;
+	justify-content: center;
+	align-content: center;
+	padding: 0.125in 0 0;
+	line-height: 0.25in;
+  }
+  
+  .card::before {
+	grid-row: 1;
+	grid-column: 1;
+  }
+  
+  .card::after {
+	grid-row: 2;
+	grid-column: 3;
+	transform: rotatez(180deg);
+  }
+  
+  .card .interior {
+	font-size: 4rem;
+	margin: 0.375in;
+	grid-column: 1 / span 3;
+	grid-row: 1 / span 2;
+	text-align: center;
+	border: 1px solid #ddd;
+	display: grid;
+	grid-auto-flow: row;
+	grid-template-columns: repeat(3, 1fr);
+	align-items: center;
+	line-height: 1;
+  }
+  
+  .card.back .interior {
+	border: none;
+  }
+  
+  .spades,
+  .clubs,
+  .joker {
+	color: black;
+  }
+  
+  .hearts,
+  .diamonds {
+	color: red;
+  }
+  
+  .symbol::before {
+	padding: 0.0625in 0;
+  }
+  
+  /*
+	  SPADES
+  */
+  
+  .spades .symbol::before {
+	content: "♠\00FE0E";
+  }
+  
+  .ace.spades::before,
+  .ace.spades::after {
+	content: "A\00000a♠\00FE0E";
+  }
+  
+  .king.spades::before,
+  .king.spades::after {
+	content: "K\00000a♠\00FE0E";
+  }
+  
+  .queen.spades::before,
+  .queen.spades::after {
+	content: "Q\00000a♠\00FE0E";
+  }
+  
+  .jack.spades::before,
+  .jack.spades::after {
+	content: "J\00000a♠\00FE0E";
+  }
+  
+  .ten.spades::before,
+  .ten.spades::after {
+	content: "10\00000a♠\00FE0E";
+  }
+  
+  .nine.spades::before,
+  .nine.spades::after {
+	content: "9\00000a♠\00FE0E";
+  }
+  
+  .eight.spades::before,
+  .eight.spades::after {
+	content: "8\00000a♠\00FE0E";
+  }
+  
+  .seven.spades::before,
+  .seven.spades::after {
+	content: "7\00000a♠\00FE0E";
+  }
+  
+  .six.spades::before,
+  .six.spades::after {
+	content: "6\00000a♠\00FE0E";
+  }
+  
+  .five.spades::before,
+  .five.spades::after {
+	content: "5\00000a♠\00FE0E";
+  }
+  
+  .four.spades::before,
+  .four.spades::after {
+	content: "4\00000a♠\00FE0E";
+  }
+  
+  .three.spades::before,
+  .three.spades::after {
+	content: "3\00000a♠\00FE0E";
+  }
+  
+  .two.spades::before,
+  .two.spades::after {
+	content: "2\00000a♠\00FE0E";
+  }
+  
+  /*
+	  HEARTS
+  */
+  
+  .hearts .symbol::before {
+	content: "♥\00FE0E";
+  }
+  
+  .ace.hearts::before,
+  .ace.hearts::after {
+	content: "A\00000a♥\00FE0E";
+  }
+  
+  .king.hearts::before,
+  .king.hearts::after {
+	content: "K\00000a♥\00FE0E";
+  }
+  
+  .queen.hearts::before,
+  .queen.hearts::after {
+	content: "Q\00000a♥\00FE0E";
+  }
+  
+  .jack.hearts::before,
+  .jack.hearts::after {
+	content: "J\00000a♥\00FE0E";
+  }
+  
+  .ten.hearts::before,
+  .ten.hearts::after {
+	content: "10\00000a♥\00FE0E";
+  }
+  
+  .nine.hearts::before,
+  .nine.hearts::after {
+	content: "9\00000a♥\00FE0E";
+  }
+  
+  .eight.hearts::before,
+  .eight.hearts::after {
+	content: "8\00000a♥\00FE0E";
+  }
+  
+  .seven.hearts::before,
+  .seven.hearts::after {
+	content: "7\00000a♥\00FE0E";
+  }
+  
+  .six.hearts::before,
+  .six.hearts::after {
+	content: "6\00000a♥\00FE0E";
+  }
+  
+  .five.hearts::before,
+  .five.hearts::after {
+	content: "5\00000a♥\00FE0E";
+  }
+  
+  .four.hearts::before,
+  .four.hearts::after {
+	content: "4\00000a♥\00FE0E";
+  }
+  
+  .three.hearts::before,
+  .three.hearts::after {
+	content: "3\00000a♥\00FE0E";
+  }
+  
+  .two.hearts::before,
+  .two.hearts::after {
+	content: "2\00000a♥\00FE0E";
+  }
+  
+  /*
+	  CLUBS
+  */
+  
+  .clubs .symbol::before {
+	content: "♣\00FE0E";
+  }
+  
+  .ace.clubs::before,
+  .ace.clubs::after {
+	content: "A\00000a♣\00FE0E";
+  }
+  
+  .king.clubs::before,
+  .king.clubs::after {
+	content: "K\00000a♣\00FE0E";
+  }
+  
+  .queen.clubs::before,
+  .queen.clubs::after {
+	content: "Q\00000a♣\00FE0E";
+  }
+  
+  .jack.clubs::before,
+  .jack.clubs::after {
+	content: "J\00000a♣\00FE0E";
+  }
+  
+  .ten.clubs::before,
+  .ten.clubs::after {
+	content: "10\00000a♣\00FE0E";
+  }
+  
+  .nine.clubs::before,
+  .nine.clubs::after {
+	content: "9\00000a♣\00FE0E";
+  }
+  
+  .eight.clubs::before,
+  .eight.clubs::after {
+	content: "8\00000a♣\00FE0E";
+  }
+  
+  .seven.clubs::before,
+  .seven.clubs::after {
+	content: "7\00000a♣\00FE0E";
+  }
+  
+  .six.clubs::before,
+  .six.clubs::after {
+	content: "6\00000a♣\00FE0E";
+  }
+  
+  .five.clubs::before,
+  .five.clubs::after {
+	content: "5\00000a♣\00FE0E";
+  }
+  
+  .four.clubs::before,
+  .four.clubs::after {
+	content: "4\00000a♣\00FE0E";
+  }
+  
+  .three.clubs::before,
+  .three.clubs::after {
+	content: "3\00000a♣\00FE0E";
+  }
+  
+  .two.clubs::before,
+  .two.clubs::after {
+	content: "2\00000a♣\00FE0E";
+  }
+  
+  /*
+	  DIAMONDS
+  */
+  
+  .diamonds .symbol::before {
+	content: "♦\00FE0E";
+  }
+  
+  .ace.diamonds::before,
+  .ace.diamonds::after {
+	content: "A\00000a♦\00FE0E";
+  }
+  
+  .king.diamonds::before,
+  .king.diamonds::after {
+	content: "K\00000a♦\00FE0E";
+  }
+  
+  .queen.diamonds::before,
+  .queen.diamonds::after {
+	content: "Q\00000a♦\00FE0E";
+  }
+  
+  .jack.diamonds::before,
+  .jack.diamonds::after {
+	content: "J\00000a♦\00FE0E";
+  }
+  
+  .ten.diamonds::before,
+  .ten.diamonds::after {
+	content: "10\00000a♦\00FE0E";
+  }
+  
+  .nine.diamonds::before,
+  .nine.diamonds::after {
+	content: "9\00000a♦\00FE0E";
+  }
+  
+  .eight.diamonds::before,
+  .eight.diamonds::after {
+	content: "8\00000a♦\00FE0E";
+  }
+  
+  .seven.diamonds::before,
+  .seven.diamonds::after {
+	content: "7\00000a♦\00FE0E";
+  }
+  
+  .six.diamonds::before,
+  .six.diamonds::after {
+	content: "6\00000a♦\00FE0E";
+  }
+  
+  .five.diamonds::before,
+  .five.diamonds::after {
+	content: "5\00000a♦\00FE0E";
+  }
+  
+  .four.diamonds::before,
+  .four.diamonds::after {
+	content: "4\00000a♦\00FE0E";
+  }
+  
+  .three.diamonds::before,
+  .three.diamonds::after {
+	content: "3\00000a♦\00FE0E";
+  }
+  
+  .two.diamonds::before,
+  .two.diamonds::after {
+	content: "2\00000a♦\00FE0E";
+  }
+  
+  /*
+	  JOKER CARD
+  */
+  
+  .joker::before,
+  .joker::after {
+	content: "Joker";
+	line-height: 0.375in;
+	font-size: 1.25rem;
+	text-transform: uppercase;
+	writing-mode: vertical-lr;
+  }
+  
+  .joker::before {
+	align-self: start;
+  }
+  
+  .joker::after {
+	align-self: end;
+  }
+  
+  .joker .symbol::before {
+	content: "?";
+  }
+  
+  /*
+	  CARD INTERIORS
+  */
+  
+  .ace .symbol,
+  .king .symbol,
+  .queen .symbol,
+  .jack .symbol,
+  .joker .symbol {
+	grid-column: 2;
+  }
+  
+  .ace .symbol {
+	font-size: 8rem;
+  }
+  
+  .king .symbol:nth-child(2),
+  .queen .symbol:nth-child(2),
+  .jack .symbol:nth-child(2),
+  .joker .symbol:nth-child(2) {
+	transform: rotate(180deg);
+  }
+  
+  .king .symbol::after,
+  .queen .symbol::after,
+  .jack .symbol::after,
+  .joker .symbol::after {
+	display: block;
+	font-size: 1rem;
+	grid-column: 1 / span 3;
+	text-transform: uppercase;
+  }
+  
+  .king .symbol::after {
+	content: "King";
+  }
+  
+  .queen .symbol::after {
+	content: "Queen";
+  }
+  
+  .jack .symbol::after {
+	content: "Jack";
+  }
+  
+  .joker .symbol::after {
+	content: "Joker";
+  }
+  
+  .ten .symbol:nth-child(1) {
+	grid-column: 2;
+	grid-row: 1 / span 2;
+  }
+  
+  .ten .symbol:nth-child(10) {
+	grid-column: 2;
+	grid-row: 3 / span 2;
+  }
+  
+  .ten .symbol:nth-child(2),
+  .ten .symbol:nth-child(3) {
+	align-self: start;
+  }
+  
+  .ten .symbol:nth-child(8),
+  .ten .symbol:nth-child(9) {
+	align-self: end;
+  }
+  
+  .nine .symbol:nth-child(1) {
+	grid-column: 2;
+	grid-row: 1 / span 4;
+  }
+  
+  .eight .symbol:nth-child(1) {
+	grid-column: 2;
+	grid-row: 1 / span 3;
+  }
+  
+  .eight .symbol:nth-child(2),
+  .eight .symbol:nth-child(3) {
+	grid-row: 1 / span 2;
+	align-self: start;
+  }
+  
+  .eight .symbol:nth-child(4),
+  .eight .symbol:nth-child(5) {
+	grid-row: 3 / span 2;
+  }
+  
+  .eight .symbol:nth-child(6),
+  .eight .symbol:nth-child(7) {
+	grid-row: 5 / span 2;
+	align-self: end;
+  }
+  
+  .eight .symbol:nth-child(8) {
+	grid-column: 2;
+	grid-row: 4 / span 3;
+  }
+  
+  .eight .symbol:nth-child(n + 6) {
+	transform: rotate(180deg);
+  }
+  
+  .seven .symbol:nth-child(1) {
+	grid-column: 2;
+	grid-row: 2 / span 5;
+	align-self: start;
+  }
+  
+  .seven .symbol:nth-child(2),
+  .seven .symbol:nth-child(3) {
+	grid-row: 1 / span 2;
+	align-self: start;
+  }
+  
+  .seven .symbol:nth-child(4),
+  .seven .symbol:nth-child(5) {
+	grid-row: 3 / span 2;
+  }
+  
+  .seven .symbol:nth-child(6),
+  .seven .symbol:nth-child(7) {
+	grid-row: 5 / span 2;
+	align-self: end;
+  }
+  
+  .symbol:nth-child(n + 6) {
+	transform: rotate(180deg);
+  }
+  
+  .six .interior {
+	grid-auto-flow: column;
+  }
+  
+  .six .symbol:nth-child(-n + 3) {
+	grid-column: 1;
+  }
+  
+  .six .symbol:nth-child(n + 4) {
+	grid-column: 3;
+  }
+  
+  .six .symbol:nth-child(1),
+  .six .symbol:nth-child(4) {
+	align-self: start;
+  }
+  
+  .six .symbol:nth-child(3),
+  .six .symbol:nth-child(6) {
+	align-self: end;
+	transform: rotate(180deg);
+  }
+  
+  .five .symbol:nth-child(1) {
+	grid-column: 2;
+	grid-row: 2;
+  }
+  
+  .five .symbol:nth-child(2),
+  .five .symbol:nth-child(4) {
+	align-self: start;
+  }
+  
+  .five .symbol:nth-child(3),
+  .five .symbol:nth-child(5) {
+	grid-row: 3;
+	align-self: end;
+	transform: rotate(180deg);
+  }
+  
+  .five .symbol:nth-child(2),
+  .five .symbol:nth-child(3) {
+	grid-column: 1;
+  }
+  
+  .five .symbol:nth-child(4),
+  .five .symbol:nth-child(5) {
+	grid-column: 3;
+  }
+  
+  .four .symbol:nth-child(1),
+  .four .symbol:nth-child(3) {
+	grid-row: 1;
+	align-self: start;
+  }
+  
+  .four .symbol:nth-child(2),
+  .four .symbol:nth-child(4) {
+	grid-row: 2;
+	align-self: end;
+	transform: rotate(180deg);
+  }
+  
+  .four .symbol:nth-child(n + 3) {
+	grid-column: 3;
+  }
+  
+  .two .interior,
+  .three .interior {
+	grid-auto-flow: column;
+  }
+  
+  .two .symbol,
+  .three .symbol {
+	grid-column: 2;
+  }
+  
+  .two .symbol:first-child,
+  .three .symbol:first-child {
+	align-self: start;
+  }
+  
+  .two .symbol:last-child,
+  .three .symbol:last-child {
+	transform: rotate(180deg);
+	align-self: end;
+  }
+  

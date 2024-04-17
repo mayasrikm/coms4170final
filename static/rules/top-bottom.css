@@ -1,0 +1,80 @@
+.card-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.stack {
+	display: flex;
+	justify-content: row;
+}
+
+.dots {
+	font-size: 5rem;
+	z-index:10000;
+	top:4rem;
+}
+
+.three.diamonds {
+	left:3rem;
+}
+
+.three.diamonds:hover {
+	left:3rem;
+}
+
+.three.spades {
+    right:4rem;
+	top:8rem;
+}
+
+header {
+    margin: 2rem;
+}
+
+h1 {
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-size: 2.15rem;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+h2 {
+	display: block;
+	margin: auto;
+	width: 70%;
+    font-family: "Merriweather", serif;
+    font-weight: 400;
+    font-size: 1.15rem;
+    text-align: center;
+    padding: 1rem;
+	line-height: 1.75rem;
+}
+
+button {
+	padding:0.65rem 1.15rem !important;
+	font-weight:600 !important;
+	border-width: 1px !important;
+	color: red !important;
+	border-color: red !important;
+	margin-left:2rem;
+    &:hover {
+		color: white !important;
+		border-color: white !important;
+		background-color: rgba(255, 0, 0, 0.9) !important;
+        &::after {
+            -webkit-transform: translateX(4px);
+            -moz-transform: translateX(4px);
+            -ms-transform: translateX(4px);
+            -o-transform: translateX(4px);
+            transform: translateX(4px);
+        }
+    }
+}
+
+.bold {
+	font-weight:600;
+}
