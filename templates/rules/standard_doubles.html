@@ -1,6 +1,36 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='cards/cards.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='rules/doubles.css')}}">
+</head>
+<header>
+    <h1>Doubles</h1>
+	<h2>A <span class="bold">double</span> is a pair of consecutive cards with the same value</h2>
+</header>
+<div class="card-container">
+    <div class="six of diamonds card" tabindex="0">
+        <div class="interior">
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+        </div>
+    </div>
+    <div class="six of spades card" tabindex="0">
+        <div class="interior">
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+        </div>
+    </div>
+	<a href="/standard-sandwich"><button type="button" class="btn btn-outline-danger">NEXT &#8702;</button></a>
+</div>
 
-<h1>Doubles</h1>
 {% endblock %}

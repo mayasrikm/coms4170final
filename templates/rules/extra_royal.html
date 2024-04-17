@@ -1,6 +1,29 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='cards/cards.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='rules/royal-marriage.css')}}">
+</head>
+<header>
+    <h1>Royal Marriage</h1>
+	<h2>A <span class="bold">royal marriage</span> is when a king and queen are consecutive</h2>
+</header>
+<div class="card-container">
+	<a href="/extra-top"><button type="button" class="btn btn-outline-danger">&#8701; PREVIOUS</button></a>
+    <div class="king of spades card" tabindex="0">
+        <div class="interior">
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+        </div>
+    </div>
+    <div class="queen of diamonds card" tabindex="0">
+        <div class="interior">
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+        </div>
+    </div>
+	<a href="/extra-tens"><button type="button" class="btn btn-outline-danger">NEXT &#8702;</button></a>
+</div>
 
-<h1>PRACTICE</h1>
 {% endblock %}
