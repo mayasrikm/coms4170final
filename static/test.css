@@ -1,0 +1,14 @@
+.radio-option {
+    display: block; /* This ensures each radio button is on a new line */
+    margin-bottom: 10px; /* Adds some space between the options */
+    cursor: pointer;
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+.radio-option input[type="radio"] {
+    margin-right: 10px; /* Adds some space between the radio button and the label text */
+}
+
+img {
+    width: 200px;
+}
