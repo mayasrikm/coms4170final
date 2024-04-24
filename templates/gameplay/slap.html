@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<body>
+<div class="slideshow-container">
+    <div class="cont" id="page">
+		<h1>Gameplay</h2>
+	<div class="translation">
+		<hr/>
+		<h2 class="invert-text">𓎼𓄿𓅓𓅂𓊪𓃭𓄿𓇌</h2>
+	</div>
+	<div class = "gameplay-cont">
+		<div class="gameplay-instructions">
+			<h3>
+				HOW TO <span class="bold">SLAP</span>
+			</h3>
+			<p class = "gameplay-p">
+				Slap rules can override gameplay at any time and allow a player to take the pile. 
+				<br/> However, if you slap wrong, you must burn a card to the bottom of the stack!			
+			</p>
+		</div>
+		<img class = "gameplay-img" src = "../static/images/slap.png"/>
+	</div>
+</div>
+<div class="buttons">
+	<a href="/gameplay/5"><button id="prev" >Prev</button></a>
+	<a href="/rules"><button >Next 𓃆</button></a>
+</div>
+</body>
+{% endblock %}

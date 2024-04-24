@@ -7,11 +7,33 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-
-@app.route("/gameplay")
+@app.route('/gameplay')
 def gameplay():
-    return render_template("gameplay.html")
+    return render_template('gameplay/gameplay.html')
 
+@app.route('/gameplay/1')
+def gameplay1():
+    return render_template('gameplay/deal.html')
+
+@app.route('/gameplay/2')
+def gameplay2():
+    return render_template('gameplay/play.html')
+
+@app.route('/gameplay/3')
+def gameplay3():
+    return render_template('gameplay/play-2.html')
+
+@app.route('/gameplay/4')
+def gameplay4():
+    return render_template('gameplay/play-3.html')
+
+@app.route('/gameplay/5')
+def gameplay5():
+    return render_template('gameplay/play-4.html')
+
+@app.route('/gameplay/6')
+def gameplay6():
+    return render_template('gameplay/slap.html')
 
 @app.route("/practice")
 def practice():
