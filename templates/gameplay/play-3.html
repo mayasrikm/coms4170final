@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<body>
+<div class="slideshow-container">
+    <div class="cont" id="page">
+		<h1>Gameplay</h2>
+	<div class="translation">
+		<hr/>
+		<h2 class="invert-text">𓎼𓄿𓅓𓅂𓊪𓃭𓄿𓇌</h2>
+	</div>
+	<div class = "gameplay-cont">
+		<div class="gameplay-instructions">
+			<h3>
+				HOW TO <span class="bold">PLAY</span>
+			</h3>
+			<p class = "gameplay-p">
+				<span class="bold">If a face card is placed:</span> the next player must place a face card to continue the game. 
+				If they don’t place a face card, the previous player takes the deck and a new round starts. 
+				
+			</p>
+		</div>
+		<img class = "gameplay-img" src = "../static/images/play-3.png"/>
+	</div>
+</div>
+<div class="buttons">
+	<a href="/gameplay/3"><button id="prev" >Prev</button></a>
+	<a href="/gameplay/5"><button >Next 𓃆</button></a>
+</div>
+</body>
+{% endblock %}
