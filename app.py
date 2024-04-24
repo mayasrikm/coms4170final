@@ -2,9 +2,10 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
 @app.route('/gameplay')
 def gameplay():
@@ -34,43 +35,56 @@ def gameplay5():
 def gameplay6():
     return render_template('gameplay/slap.html')
 
-
-@app.route('/practice')
+@app.route("/practice")
 def practice():
-    return render_template('practice.html')
+    return render_template("practice.html")
 
-@app.route('/rules')
+
+@app.route("/rules")
 def rules():
-    return render_template('rules.html')
+    return render_template("rules.html")
 
-@app.route('/test')
+
+@app.route("/test")
 def test():
-    return render_template('test.html')
+    return render_template("test.html")
 
 
-@app.route('/standard-doubles')
+@app.route("/standard-doubles")
 def standard_doubles():
-    return render_template('rules/standard_doubles.html')
+    return render_template("rules/standard_doubles.html")
 
-@app.route('/standard-sandwich')
+
+@app.route("/standard-sandwich")
 def standard_sandwich():
-    return render_template('rules/standard_sandwich.html')
+    return render_template("rules/standard_sandwich.html")
 
-@app.route('/extra-top')
+
+@app.route("/extra-top")
 def extra_top():
-    return render_template('rules/extra_top.html')
+    return render_template("rules/extra_top.html")
 
-@app.route('/extra-royal')
+
+@app.route("/extra-royal")
 def extra_royal():
-    return render_template('rules/extra_royal.html')
+    return render_template("rules/extra_royal.html")
 
-@app.route('/extra-tens')
+
+@app.route("/extra-tens")
 def extra_tens():
-    return render_template('rules/extra_tens.html')
+    return render_template("rules/extra_tens.html")
 
-@app.route('/extra-four')
+
+@app.route("/extra-four")
 def extra_four():
-    return render_template('rules/extra_four.html')
+    return render_template("rules/extra_four.html")
 
-if __name__ == '__main__':
+
+# test questions
+@app.route("/test/questions")
+def test_questions():
+    return render_template("test/questions.html")
+
+
+if __name__ == "__main__":
     app.run(debug=True)
