@@ -3,22 +3,24 @@ let questions = [
   {
     type: "multiple-choice",
     title: "Test: Basic Gameplay",
+    image: "/static/images/test/queen_of_hearts.png",
     questionText:
       "How many cards must the next player put down if the previous put a Queen?",
-    choices: ["A) 1", "B) 2", "C) 3", "D) 4"],
-    correctAnswer: "B) 2",
+    choices: ["1", "2", "3", "4"],
+    correctAnswer: "2",
   },
   {
     type: "multiple-choice",
     title: "Test: Basic Gameplay",
-    questionText: "Which player goes first in ERS",
+    questionText: "Which player goes first in ERS?",
+    image:"/static/images/play-2.png",
     choices: [
-      "A) Oldest",
-      "B) Dealer",
-      "C) Left of Dealer",
-      "D) Right of Dealer",
+      "Oldest",
+      "Dealer",
+      "Left of Dealer",
+      "Right of Dealer",
     ],
-    correctAnswer: "C) Left of Dealer",
+    correctAnswer: "Left of Dealer",
   },
   {
     type: "input",
@@ -39,37 +41,32 @@ let questions = [
     title: "Test: Slap Rules",
     image: "/static/images/test/q5.png",
     questionText: "Is this a valid four in a row?",
-    choices: ["A) True", "B) False"],
-    correctAnswer: "A) True",
-  },
-  {
-    type: "input",
-    title: "Test: Slap Rules",
-    image: "/static/images/test/queen_of_hearts.png",
-    questionText:
-      "How many cards must the next player put down if the previous	put a Queen ?",
-    correctAnswer: "2",
+    choices: ["True", "False"],
+    correctAnswer: "True",
   },
 ];
 $(document).ready(function () {
   let currentQuestionIndex = 0;
   let selectedAnswer = "";
-
+  $("#last-question").hide();
   function displayQuestion() {
     let question = questions[currentQuestionIndex];
     $("#question-title").text(question.title);
     $("#question-container").empty();
-
+    $("#img-location").empty();
     if (question.image) {
+      $(".gameplay-cont").removeClass("no-image");
       $("<img>")
         .attr({
           src: question.image,
           alt: "Card Image",
           class: "card-image",
         })
-        .appendTo("#question-container");
+        .appendTo("#img-location");
     }
-
+    else{
+      $(".gameplay-cont").addClass("no-image");
+    }
     $("<p>").text(question.questionText).appendTo("#question-container");
 
     if (question.type === "multiple-choice") {
@@ -84,7 +81,10 @@ $(document).ready(function () {
         });
         $radio.on("change", function () {
           selectedAnswer = $(this).val();
+          $(".radio-option").removeClass("selected"); 
+          $(this).closest('.radio-option').addClass("selected");
         });
+  
         $label.append($radio);
         $label.append(choice);
         $form.append($label);
@@ -95,6 +95,7 @@ $(document).ready(function () {
         .attr({
           type: "text",
           id: "user-input",
+          class:"user-input",
           placeholder: "Type your answer here...",
         })
         .appendTo("#question-container");
@@ -102,6 +103,7 @@ $(document).ready(function () {
 
     $("#submit-answer").show();
     $("#next-question").hide();
+    
     $("#feedback").empty();
     selectedAnswer = "";
   }
@@ -129,20 +131,34 @@ $(document).ready(function () {
         selectedAnswer.trim().toLowerCase() ===
         question.correctAnswer.toLowerCase();
     }
-
     if (isCorrect) {
       $("#feedback").text("Correct!").css("color", "green");
+      $("#user-input").css("background-color", "#deebd8");
+      $(".radio-option").each(function () {
+        if ($(this).find("input[type='radio']:checked").val() === question.correctAnswer) {
+            $(this).addClass("correct");
+        }
+    });
     } else {
       $("#feedback")
         .text(
           "Incorrect. The correct answer is " + question.correctAnswer + "."
         )
         .css("color", "red");
+        $("#user-input").css("background-color", "#eecdcd"); 
+        $(".radio-option").each(function () {
+          if ($(this).find("input[type='radio']:checked").val()) {
+              $(this).addClass("wrong");
+          }
+      });
     }
 
     $("#submit-answer").hide();
     if (currentQuestionIndex < questions.length - 1) {
       $("#next-question").show();
+    }
+    else if (currentQuestionIndex == questions.length - 1) {
+      $("#last-question").show();
     }
   });
 

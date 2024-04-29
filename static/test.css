@@ -1,14 +1,122 @@
-.radio-option {
-    display: block; /* This ensures each radio button is on a new line */
-    margin-bottom: 10px; /* Adds some space between the options */
-    cursor: pointer;
-    font-size: 16px; /* Adjust font size as needed */
-}
-
-.radio-option input[type="radio"] {
-    margin-right: 10px; /* Adds some space between the radio button and the label text */
-}
 
 img {
-    width: 200px;
+    width: 225px;
+    margin-top: -50px;
+}
+
+.feedback{
+    margin-top:15px;
+}
+.radio-option {
+    display: block;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; 
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    
+}
+
+.radio-option:hover {
+    background-color: #ccc; 
+}
+
+.radio-option.selected {
+    background-color:  #ccc;
+  }
+
+  .radio-option.correct {
+    background-color:#deebd8  ; 
+  }
+  .radio-option.wrong {
+    background-color: #eecdcd; 
+  }
+
+
+.radio-option input[type="radio"] {
+    display: none; 
+}
+
+.radio-option label {
+    position: relative;
+    padding-left: 30px; 
+}
+
+.radio-option label::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    transition: background-color 0.3s ease; 
+  }
+
+  .user-input{
+    font-size: 16px;
+    margin-left:5px;
+    transition: background-color 0.3s ease; 
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%; 
+    box-sizing: border-box; 
+    margin-top: 10px; 
+
+}
+#question-container p {
+    margin-top: -90px;
+    width:100%;
+    text-align: center;
+}
+
+.img-location {
+    object-fit: cover;
+    margin-top:20px;
+    padding:10px;
+    filter: brightness(105%);
+}
+.quiz-cont {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top:5rem;
+}
+
+.quiz-instructions {
+	display: flex;
+	flex-direction: column;
+	padding:1rem;
+}
+@media screen and (min-width: 1200px) {
+	.cont {
+		width: 60%;
+        
+	}
+
+	.quiz-cont {
+		flex-direction: row;
+        
+	}
+	.quiz-instructions {
+		width:60%;
+	}
+    .img-location{
+        margin-top:-15px;
+    }
+    .quiz-cont .no-image {
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        text-align: center; 
+    }
+
+}
+.img-location img {
+    min-height: 250px; /* Adjust the value as needed */
 }

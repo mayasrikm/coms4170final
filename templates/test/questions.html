@@ -1,16 +1,28 @@
 {% extends "layout.html" %} {% block content %}
 <body>
-  <div class="container text-center">
-    <h1>Test: Basic Gameplay</h1>
-    <div id="question-container"></div>
-    <div id="answer-container" class="hidden"></div>
+  <div class="container ">
+    <div class="cont" id="page">
+      <h1>Quiz</h2>
+    <div class="translation">
+      <hr/>
+      <h2 class="invert-text">𓎡𓅲𓇋𓊃</h2>
+    </div>
+    <div class = "quiz-cont">
+      <div class="quiz-instructions">
+        <p class = "gameplay-p" id="question-container"></p>
+        <div id="answer-container" class="hidden"></div>
+      </div>
+      <div id = "img-location" class = "img-location"> </div>
+    </div>
     <button id="submit-answer">Submit Answer</button>
-    <p id="feedback"></p>
-    <button id="next-question" class="hidden">Next Question</button>
+    <div id="feedback" class="feedback"></div>
+    <button id="next-question" class="hidden next-question">Next Question</button>
+    <a href="/"><button id="last-question" class="hidden last-question">Back to Homepage</button></a>
+
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="{{ url_for('static', filename='test_script.js') }}"></script>
+  <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" />
   <link rel="stylesheet" href="{{url_for('static', filename='test.css')}}" />
 </body>
-
 {% endblock %}
