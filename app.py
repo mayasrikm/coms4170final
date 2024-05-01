@@ -50,34 +50,34 @@ def test():
     return render_template("test.html")
 
 
-@app.route("/standard-doubles")
+@app.route("/doubles")
 def standard_doubles():
-    return render_template("rules/standard_doubles.html")
+    return render_template("rules/doubles.html")
 
 
-@app.route("/standard-sandwich")
+@app.route("/sandwich")
 def standard_sandwich():
-    return render_template("rules/standard_sandwich.html")
+    return render_template("rules/sandwich.html")
 
 
-@app.route("/extra-top")
+@app.route("/top-bottom")
 def extra_top():
-    return render_template("rules/extra_top.html")
+    return render_template("rules/top-bottom.html")
 
 
-@app.route("/extra-royal")
+@app.route("/royal-marriage")
 def extra_royal():
-    return render_template("rules/extra_royal.html")
+    return render_template("rules/royal.html")
 
 
-@app.route("/extra-tens")
+@app.route("/tens")
 def extra_tens():
-    return render_template("rules/extra_tens.html")
+    return render_template("rules/tens.html")
 
 
-@app.route("/extra-four")
+@app.route("/four-in-a-row")
 def extra_four():
-    return render_template("rules/extra_four.html")
+    return render_template("rules/four-in-a-row.html")
 
 
 # test questions
