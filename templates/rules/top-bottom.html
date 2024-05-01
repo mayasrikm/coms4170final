@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<body>
+<div class="slideshow-container">
+    <div class="cont" id="page">
+		<h1>Slap Rules</h2>
+	<div class="translation">
+		<hr/>
+		<h2 class="invert-text">𓋴𓃭𓄿𓊪 𓂋𓅲𓃭𓅂𓋴</h2>
+	</div>
+	<div class = "gameplay-cont">
+		<div class="gameplay-instructions">
+			<h3>
+				<span class="bold">TOP-BOTTOM</span>
+			</h3>
+			<p class = "gameplay-p">
+				A <span class="bold">top-bottom</span> occurs when the value of the card at the top of the stack matches the value of the card at the bottom of the stack.				
+			</p>
+		</div>
+		<img class = "slap-rules-img" src = "../static/images/slap-rules/top-bottom-lg.png"/>
+	</div>
+</div>
+<div class="buttons">
+	<a href="/doubles"><button id="prev" >Prev</button></a>
+	<a href="/sandwich"><button >Next 𓃆</button></a>
+</div>
+</body>
+{% endblock %}

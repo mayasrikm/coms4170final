@@ -1,35 +1,28 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<html lang="en">
-
-<body >
-
-<header>
-    <h1>Slap Rules</h1>
-	<p>"Slap in" at the right time to get cards. Learn the slap rules below.</p>
-</header>
-
-<h2>Standard Slaps:</h2>
-<div class="button-group">
-  <a href="/standard-doubles"><button type="button" class="btn btn-outline-danger rule-btn">Doubles</button></a>
-
-  <a href="/standard-sandwich"><button type="button" class="btn btn-outline-danger rule-btn">Sandwich</button></a>
+<body>
+<div class="slideshow-container">
+    <div class="cont" id="page">
+		<h1>Slap Rules</h2>
+	<div class="translation">
+		<hr/>
+		<h2 class="invert-text">𓋴𓃭𓄿𓊪 𓂋𓅲𓃭𓅂𓋴</h2>
+	</div>
+	<div class="slap-rules-btn-col">
+		<div class="slap-rules-btn-row">
+			<a href="/doubles"><button class="slap-rules-btn"><img class="btn-img" src="../static/images/slap-rules/doubles.png"/> Doubles</button></a>
+			<a href="/top-bottom"><button class="slap-rules-btn"><img class="btn-img" src="../static/images/slap-rules/top-bottom.png"/> Top-Bottom</button></a>
+		</div>
+		<div class="slap-rules-btn-row">
+			<a href="/sandwich"><button class="slap-rules-btn"><img class="btn-img" src="../static/images/slap-rules/sandwich.png"/> Sandwich</button></a>
+			<a href="/royal-marriage"><button class="slap-rules-btn"><img class="btn-img" src="../static/images/slap-rules/royal.png"/> Royal Marriage</button></a>
+		</div>
+		<div class="slap-rules-btn-row">
+			<a href="/tens"><button class="slap-rules-btn"><img class="btn-img" src="../static/images/slap-rules/tens.png"/> Tens</button></a>
+			<a href="/four-in-a-row"><button class="slap-rules-btn"><img class="btn-img" src="../static/images/slap-rules/four-in-a-row.png"/> Four-in-a-row</button></a>
+		</div>
+	</div>	
 </div>
-
-<h2>Extra Slaps:</h2>
-<div class="button-group" style="">
-  <a href="/extra-top"><button type="button" class="btn btn-outline-danger rule-btn">Top-Bottom</button></a>
-
-  <a href="/extra-royal"><button type="button" class="btn btn-outline-danger rule-btn">Royal Marriage</button></a>
-
-  <a href="/extra-tens"><button type="button" class="btn btn-outline-danger rule-btn">Tens</button></a>
-
-  <a href="/extra-four"><button type="button" class="btn btn-outline-danger rule-btn">Four-in-a-Row</button></a>
-</div>
-
 </body>
-</html>
-
-
 {% endblock %}
