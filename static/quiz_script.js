@@ -1,9 +1,9 @@
-// for test
+// for quiz
 let questions = [
   {
     type: "multiple-choice",
-    title: "Test: Basic Gameplay",
-    image: "/static/images/test/queen_of_hearts.png",
+    title: "Quiz: Basic Gameplay",
+    image: "/static/images/quiz/queen_of_hearts.png",
     questionText:
       "How many cards must the next player put down if the previous put a Queen?",
     choices: ["1", "2", "3", "4"],
@@ -11,35 +11,30 @@ let questions = [
   },
   {
     type: "multiple-choice",
-    title: "Test: Basic Gameplay",
+    title: "Quiz: Basic Gameplay",
     questionText: "Which player goes first in ERS?",
-    image:"/static/images/play-2.png",
-    choices: [
-      "Oldest",
-      "Dealer",
-      "Left of Dealer",
-      "Right of Dealer",
-    ],
+    image: "/static/images/play-2.png",
+    choices: ["Oldest", "Dealer", "Left of Dealer", "Right of Dealer"],
     correctAnswer: "Left of Dealer",
   },
   {
     type: "input",
-    title: "Test: Slap Rules",
-    image: "/static/images/test/q3.png",
+    title: "Quiz: Slap Rules",
+    image: "/static/images/quiz/q3.png",
     questionText: "Identify the slap rule shown:",
     correctAnswer: "Royal Marriage",
   },
   {
     type: "input",
-    title: "Test: Slap Rules",
-    image: "/static/images/test/q4.png",
+    title: "Quiz: Slap Rules",
+    image: "/static/images/quiz/q4.png",
     questionText: "Identify the slap rule shown:",
     correctAnswer: "Top Bottom",
   },
   {
     type: "multiple-choice",
-    title: "Test: Slap Rules",
-    image: "/static/images/test/q5.png",
+    title: "Quiz: Slap Rules",
+    image: "/static/images/quiz/q5.png",
     questionText: "Is this a valid four in a row?",
     choices: ["True", "False"],
     correctAnswer: "True",
@@ -63,8 +58,7 @@ $(document).ready(function () {
           class: "card-image",
         })
         .appendTo("#img-location");
-    }
-    else{
+    } else {
       $(".gameplay-cont").addClass("no-image");
     }
     $("<p>").text(question.questionText).appendTo("#question-container");
@@ -81,10 +75,10 @@ $(document).ready(function () {
         });
         $radio.on("change", function () {
           selectedAnswer = $(this).val();
-          $(".radio-option").removeClass("selected"); 
-          $(this).closest('.radio-option').addClass("selected");
+          $(".radio-option").removeClass("selected");
+          $(this).closest(".radio-option").addClass("selected");
         });
-  
+
         $label.append($radio);
         $label.append(choice);
         $form.append($label);
@@ -95,7 +89,7 @@ $(document).ready(function () {
         .attr({
           type: "text",
           id: "user-input",
-          class:"user-input",
+          class: "user-input",
           placeholder: "Type your answer here...",
         })
         .appendTo("#question-container");
@@ -103,7 +97,7 @@ $(document).ready(function () {
 
     $("#submit-answer").show();
     $("#next-question").hide();
-    
+
     $("#feedback").empty();
     selectedAnswer = "";
   }
@@ -135,29 +129,31 @@ $(document).ready(function () {
       $("#feedback").text("Correct!").css("color", "green");
       $("#user-input").css("background-color", "#deebd8");
       $(".radio-option").each(function () {
-        if ($(this).find("input[type='radio']:checked").val() === question.correctAnswer) {
-            $(this).addClass("correct");
+        if (
+          $(this).find("input[type='radio']:checked").val() ===
+          question.correctAnswer
+        ) {
+          $(this).addClass("correct");
         }
-    });
+      });
     } else {
       $("#feedback")
         .text(
           "Incorrect. The correct answer is " + question.correctAnswer + "."
         )
         .css("color", "red");
-        $("#user-input").css("background-color", "#eecdcd"); 
-        $(".radio-option").each(function () {
-          if ($(this).find("input[type='radio']:checked").val()) {
-              $(this).addClass("wrong");
-          }
+      $("#user-input").css("background-color", "#eecdcd");
+      $(".radio-option").each(function () {
+        if ($(this).find("input[type='radio']:checked").val()) {
+          $(this).addClass("wrong");
+        }
       });
     }
 
     $("#submit-answer").hide();
     if (currentQuestionIndex < questions.length - 1) {
       $("#next-question").show();
-    }
-    else if (currentQuestionIndex == questions.length - 1) {
+    } else if (currentQuestionIndex == questions.length - 1) {
       $("#last-question").show();
     }
   });

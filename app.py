@@ -7,33 +7,41 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route('/gameplay')
+
+@app.route("/gameplay")
 def gameplay():
-    return render_template('gameplay/gameplay.html')
+    return render_template("gameplay/gameplay.html")
 
-@app.route('/gameplay/1')
+
+@app.route("/gameplay/1")
 def gameplay1():
-    return render_template('gameplay/deal.html')
+    return render_template("gameplay/deal.html")
 
-@app.route('/gameplay/2')
+
+@app.route("/gameplay/2")
 def gameplay2():
-    return render_template('gameplay/play.html')
+    return render_template("gameplay/play.html")
 
-@app.route('/gameplay/3')
+
+@app.route("/gameplay/3")
 def gameplay3():
-    return render_template('gameplay/play-2.html')
+    return render_template("gameplay/play-2.html")
 
-@app.route('/gameplay/4')
+
+@app.route("/gameplay/4")
 def gameplay4():
-    return render_template('gameplay/play-3.html')
+    return render_template("gameplay/play-3.html")
 
-@app.route('/gameplay/5')
+
+@app.route("/gameplay/5")
 def gameplay5():
-    return render_template('gameplay/play-4.html')
+    return render_template("gameplay/play-4.html")
 
-@app.route('/gameplay/6')
+
+@app.route("/gameplay/6")
 def gameplay6():
-    return render_template('gameplay/slap.html')
+    return render_template("gameplay/slap.html")
+
 
 @app.route("/practice")
 def practice():
@@ -45,9 +53,9 @@ def rules():
     return render_template("rules.html")
 
 
-@app.route("/test")
-def test():
-    return render_template("test.html")
+@app.route("/quiz")
+def quiz():
+    return render_template("quiz.html")
 
 
 @app.route("/doubles")
@@ -80,10 +88,10 @@ def extra_four():
     return render_template("rules/four-in-a-row.html")
 
 
-# test questions
-@app.route("/test/questions")
-def test_questions():
-    return render_template("test/questions.html")
+# quiz questions
+@app.route("/quiz/questions")
+def quiz_questions():
+    return render_template("quiz/questions.html")
 
 
 if __name__ == "__main__":
