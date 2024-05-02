@@ -40,6 +40,10 @@ let questions = [
     correctAnswer: "True",
   },
 ];
+
+let correct_score = 0;
+let incorrect_score = 0;
+
 $(document).ready(function () {
   let currentQuestionIndex = 0;
   let selectedAnswer = "";
@@ -47,6 +51,9 @@ $(document).ready(function () {
   function displayQuestion() {
     let question = questions[currentQuestionIndex];
     $("#question-title").text(question.title);
+    $("#score-correct").text(correct_score);
+    $("#score-incorrect").text(incorrect_score);
+
     $("#question-container").empty();
     $("#img-location").empty();
     if (question.image) {
@@ -126,6 +133,8 @@ $(document).ready(function () {
         question.correctAnswer.toLowerCase();
     }
     if (isCorrect) {
+      correct_score += 1;
+      $("#score-correct").text(correct_score);
       $("#feedback").text("Correct!").css("color", "green");
       $("#user-input").css("background-color", "#deebd8");
       $(".radio-option").each(function () {
@@ -137,6 +146,8 @@ $(document).ready(function () {
         }
       });
     } else {
+      incorrect_score += 1;
+      $("#score-incorrect").text(incorrect_score);
       $("#feedback")
         .text(
           "Incorrect. The correct answer is " + question.correctAnswer + "."
