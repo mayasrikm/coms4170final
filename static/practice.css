@@ -1,0 +1,27 @@
+#walkthrough {
+	color: black;
+	border: solid 1px black;
+	background-color: white;
+}
+
+.top-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.title {
+    padding: 0 20px; 
+}
+
+.score-cont {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.filler-cont {
+    flex: 1;
+}
