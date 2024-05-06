@@ -113,7 +113,7 @@ h6 {
 	color: white;
 	background-color: #dd2803;
 	padding: 0.75rem 1rem;
-	border: none;
+	border: solid 1.5px red;
 	border-radius: 25px;
 	margin: 1rem 0.5rem;
 }
@@ -136,7 +136,7 @@ h6 {
 
 .white-button:hover {
 	cursor: pointer;
-	border: none;
+	border: solid 1.5px black;
 	background-color: black;
 	color:white;
 }

@@ -1,3 +1,6 @@
+let correct_score = 0;
+let incorrect_score = 0;
+
 function getRandomCard() {
   const suits = ["hearts", "diamonds", "clubs", "spades"];
   const values = [
