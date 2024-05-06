@@ -20,27 +20,34 @@
 
             <div class="practice-cont">
                 <!-- <div id = "img-location" class = "img-location"> </div> -->
+                <div id="feedback-filler-container"></div>
                 <div id="card-container"></div>
+                <div id="feedback-container"></div>
             </div>
 
             <div class="bottom-cont">
                 <div class="exit-button">
                     <a href="/"><button class="white-button exit-button">Exit</button></a>
                 </div>
-                <a href="/gameplay/5"><button class="red-button slap-button">SLAP! 𓃆</button></a>
+                <button id="slap-button" class="red-button slap-button margin-0">SLAP! 𓃆</button>
+                <a href="/"><button id="last-question" class="hidden last-question red-button">Back to Homepage</button></a>
 
                 <div class="next-button">
-                    <a href="/gameplay/5"><button class="white-button next-button">Next Card</button></a>
+                   <button id="next-card-button" class="white-button next-button">Next Card</button>
+                   <button id="end-round-button" class="hidden white-button">End Round</button>
+                   <button id="next-round-button" class="hidden white-button">Next Round</button>
                 </div>
 	           
             </div>
+            <!-- last question show this -->
+            <a href="/"><button id="last-question" class="hidden last-question red-button">Back to Homepage</button></a>
 
                 
         </div>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="{{ url_for('static', filename='practice_script.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='practice_script.js') }}"></script>
 <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" />
 <link rel="stylesheet" href="{{url_for('static', filename='practice.css')}}" />
 {% endblock %}

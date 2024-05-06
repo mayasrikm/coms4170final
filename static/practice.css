@@ -20,8 +20,28 @@
     flex: 1;
 }
 
+.practice-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#feedback-container{
+    width: 150px;
+    /* margin: auto;  */
+    /* background-color: #d9ead3; */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#feedback-filler-container{
+    width: 150px;
+}
+
 #card-container {
-    padding-left: 200px;
+    width: 300px;
     height: 400px;
 }
 .card {
