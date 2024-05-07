@@ -96,12 +96,93 @@
 .slap-button {
     font-size: 1.5rem;
 	font-weight: 300;
-    margin: auto;
+    margin: 5px;
 }
 
-.exit-button{
+.left-button-cont{
+    margin-left: 0; 
     margin-right: auto; 
+    width: 200px;
 }
-.next-button{
+.right-button-cont{
     margin-right: auto; 
+    width: 200px;
+}
+
+#next-card-button {
+    width: 125px;
+}
+
+#end-round-button {
+    width: 125px;
+}
+
+#next-round-button {
+    width: 125px;
+}
+
+#feedback-container-mobile{
+    display: none;
+}
+
+.cleared-div {
+    background-color: white;
+}
+
+/* mobile */
+@media screen and (max-width: 1200px) {
+    .score-cont{
+        font-size: 0.9rem;
+    }
+
+    /* feedback */
+    #feedback-container{
+        display:none;
+    }
+
+    #feedback-container-mobile{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+    }
+
+    #feedback-filler-container{
+        display:none;
+    }
+
+    /* bottom row */
+    .bottom-cont {
+        padding: 0px;
+        margin: 5px;
+        font-size: 0.85rem;
+    }
+
+    .left-button-cont{
+        /* width: 115px; */
+    }
+    .right-button-cont{
+        width: 115px;
+    }
+
+    .slap-button {
+        font-size: 1.25rem;
+        width: 90px;
+        margin: 0px;
+    }
+   
+    #next-card-button {
+        width: 110px;
+    }
+    
+    #end-round-button {
+        width: 110px;
+    }
+    
+    #next-round-button {
+        width: 110px;
+    }
 }

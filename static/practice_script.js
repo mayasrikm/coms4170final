@@ -15,6 +15,8 @@ let current_question_index = 0;
 let card_width = 150;
 let card_height = 217.8;
 
+let is_mobile = $(window).width() <= 1200;
+
 function getRandomCard() {
   const suits = ["hearts", "diamonds", "clubs", "spades"];
   const values = [
@@ -143,11 +145,14 @@ function defaultPracticeMode() {
 }
 
 function displayPracticeRound(prac_index) {
+  let feedback_container = is_mobile
+    ? $("#feedback-container-mobile")
+    : $("#feedback-container");
+
   $("#next-card-button").show();
   $("#end-round-button").hide();
   $("#next-round-button").hide();
-  $("#feedback-container").empty();
-  $("#feedback-container").hide();
+  feedback_container.empty().css("background-color", "white");
 
   current_card_index = 0;
   let current_practice_cards = practice_rounds[prac_index]["cards"];
@@ -195,10 +200,10 @@ function displayPracticeRound(prac_index) {
         correct_score += 1;
         let feedback_text = `Correct! This is the ${round.slap_rule} rule.`;
         $("#score-correct").text(correct_score);
-        $("#feedback-container")
+        feedback_container
           .text(feedback_text)
           .css("background-color", "#d9ead3");
-        $("#feedback-container").show();
+        feedback_container.show();
       } else {
         incorrect_score += 1;
         let feedback_text = "";
@@ -208,10 +213,10 @@ function displayPracticeRound(prac_index) {
           feedback_text = `Incorrect. This is not a slap rule.`;
         }
         $("#score-incorrect").text(incorrect_score);
-        $("#feedback-container")
+        feedback_container
           .text(feedback_text)
           .css("background-color", "#e6b8af");
-        $("#feedback-container").show();
+        feedback_container.show();
       }
       $("#next-card-button").hide();
       $("#end-round-button").hide();
@@ -233,18 +238,18 @@ function displayPracticeRound(prac_index) {
         correct_score += 1;
         let feedback_text = `Correct! There are no slap rules this round.`;
         $("#score-correct").text(correct_score);
-        $("#feedback-container")
+        feedback_container
           .text(feedback_text)
           .css("background-color", "#d9ead3");
-        $("#feedback-container").show();
+        feedback_container.show();
       } else {
         incorrect_score += 1;
         let feedback_text = `Incorrect. You missed the ${round.slap_rule} rule.`;
         $("#score-incorrect").text(incorrect_score);
-        $("#feedback-container")
+        feedback_container
           .text(feedback_text)
           .css("background-color", "#e6b8af");
-        $("#feedback-container").show();
+        feedback_container.show();
       }
       $("#next-card-button").hide();
       $("#end-round-button").hide();

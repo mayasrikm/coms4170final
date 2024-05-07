@@ -100,9 +100,9 @@ def practice_walkthrough():
     return render_template("practice/walkthrough.html")
 
 
-@app.route("/practice/timed")
-def practice_timed():
-    return render_template("practice/timed.html")
+# @app.route("/practice/timed")
+# def practice_timed():
+#     return render_template("practice/timed.html")
 
 
 if __name__ == "__main__":
