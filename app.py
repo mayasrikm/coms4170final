@@ -45,7 +45,7 @@ def gameplay6():
 
 @app.route("/practice")
 def practice():
-    return render_template("practice.html")
+    return render_template("practice/practice.html")
 
 
 @app.route("/rules")
@@ -55,7 +55,7 @@ def rules():
 
 @app.route("/quiz")
 def quiz():
-    return render_template("quiz.html")
+    return render_template("quiz/quiz.html")
 
 
 @app.route("/doubles")
@@ -92,6 +92,17 @@ def extra_four():
 @app.route("/quiz/questions")
 def quiz_questions():
     return render_template("quiz/questions.html")
+
+
+# practice
+@app.route("/practice/walkthrough")
+def practice_walkthrough():
+    return render_template("practice/walkthrough.html")
+
+
+# @app.route("/practice/timed")
+# def practice_timed():
+#     return render_template("practice/timed.html")
 
 
 if __name__ == "__main__":

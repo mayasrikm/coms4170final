@@ -1,0 +1,21 @@
+{% extends "layout.html" %} {% block content %}
+<body>
+  <div class="container text-center">
+    <div class="cont" id="page">
+      <h1>Practice</h2>
+    <div class="translation">
+      <hr/>
+      <h2 class="invert-text">𓎡𓅲𓇋𓊃</h2>
+    </div>
+    <p class="light-grey gameplay-p text-center">
+        Practice your slapping skills by slapping at the right time. <br>
+        You will see the pile - click the slap button when one of the slap rules occurs.        
+    </p>
+    <a href="/practice/walkthrough"><button class="red-button">Start Practice! 𓃆</button></a>
+    <!-- <a href="/practice/timed"><button class="red-button">Timed Mode</button></a> -->
+  </div>
+</body>
+<link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" />
+<link rel="stylesheet" href="{{url_for('static', filename='practice.css')}}" />
+
+{% endblock %}

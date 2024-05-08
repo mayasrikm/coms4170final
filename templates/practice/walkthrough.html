@@ -1,0 +1,52 @@
+{% extends "layout.html" %} {% block content %}
+<body>
+    <div class="container ">
+        <div class="cont" id="page">
+            <div class="top-cont">
+                <div class="score-cont">
+                    <div class ="gameplay-p bold margin-0">Score</div>
+                    <div class = "gameplay-p light-grey margin-0" >Correct: <span id="score-correct"> </span></div>
+                    <div class = "gameplay-p light-grey margin-0" >Incorrect: <span id="score-incorrect"> </span></div>
+                </div>
+                <div class="title">
+                    <h1>Practice</h2>
+                    <div class="translation">
+                        <hr/>
+                        <h2 class="invert-text">𓎡𓅲𓇋𓊃</h2>
+                    </div>
+                </div>
+                <div class="filler-cont"></div>
+            </div>
+
+            <div class="practice-cont">
+                <!-- <div id = "img-location" class = "img-location"> </div> -->
+                <div id="feedback-filler-container"></div>
+                <div id="card-container"></div>
+                <div id="feedback-container"></div>
+            </div>
+
+            <div id="feedback-container-mobile"></div>
+
+            <div class="bottom-cont">
+                <div class="left-button-cont">
+                    <a href="/"><button class="white-button">Exit</button></a>
+                </div>
+                <button id="slap-button" class="red-button slap-button">SLAP! 𓃆</button>
+                <a href="/quiz"><button id="last-question" class="hidden last-question red-button">Go to Quiz 𓃆</button></a>
+
+                <div class="right-button-cont">
+                   <button id="next-card-button" class="white-button">Next Card</button>
+                   <button id="end-round-button" class="hidden white-button">End Round</button>
+                   <button id="next-round-button" class="hidden white-button">Next Round</button>
+                </div>
+	           
+            </div>
+                
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="module" src="{{ url_for('static', filename='practice_script.js') }}"></script>
+<link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" />
+<link rel="stylesheet" href="{{url_for('static', filename='practice.css')}}" />
+{% endblock %}
