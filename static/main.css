@@ -182,8 +182,8 @@ a{
 }
 
 .btn-img {
-	width:35%;
-	height:105%;
+	width:auto;
+	height:90%;
 	padding-right:5px;
 }
 
